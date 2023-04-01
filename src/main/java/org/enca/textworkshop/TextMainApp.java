@@ -40,6 +40,16 @@ public class TextMainApp
 
         //textOpt.replaceSample();
 
-        textOpt.stripSample();
+        //textOpt.stripSample();
+
+        //System.out.println(TextOperations.split("dsadsa dsa dsa d sa"));
+
+        //textOpt.compareToSample();
+
+        //textOpt.containSample();
+
+        //textOpt.concatanationSample();
+
+        textOpt.someOtherUseful();
     }
 }

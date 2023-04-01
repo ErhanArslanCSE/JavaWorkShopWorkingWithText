@@ -89,4 +89,107 @@ public class TextOperations {
 
     }
 
+    public static String split(String data)
+    {
+        return data.replace(" ","");
+    }
+
+    public void compareToSample()
+    {
+        String orderStr1="artistic";
+
+        String orderStr2="banana";
+
+        //if first string comes before, compareTo will return negative value.
+        //if first and second value is equally ordered, then compareTo will return 0.
+        //if first string comes after from second, compareTo will return positive value.
+
+        System.out.println(orderStr1.compareTo(orderStr2));
+
+        orderStr1="banana";
+
+        orderStr2="Banana";
+
+        System.out.println(orderStr1.compareTo(orderStr2));
+        System.out.println(orderStr1.compareToIgnoreCase(orderStr2));
+
+    }
+
+    public void containSample()
+    {
+        String strVar="test data for : contanins tample";
+
+        System.out.println(strVar.contains(":"));
+    }
+
+    public void concatanationSample()
+    {
+        String str1="This is sample text val";
+        String str2="this is the second val for test";
+
+        System.out.println(str1+" "+str2);
+
+        System.out.println(str1+4);
+
+        System.out.println(str1+3+4);
+        System.out.println(str1+(3+4));
+
+        System.out.println(3+4);
+
+        //if we add the length of string which we will concat, the jvm will allocate the exact memory for it. no more space.
+        //this is important for performance tunning.
+        StringBuilder anotherConcat=new StringBuilder(str1.length()+1+str2.length()).append(str1).append(" ").append(str2);
+        System.out.println(anotherConcat);
+
+        //stringbuffer is like stringbuilder. we can assume that just older version of stringbuilder.
+
+        String strBuf=new StringBuffer().append(str1).append(" ").append(str2).toString();
+        System.out.println(strBuf);
+
+        //efficient looking and easy to read. But this is same as static concat via + sign.
+        System.out.format("%s %s",str1,str2);
+
+        //to Conclude, if you wanna to consider with memory optimization, you should select the way of String Builder.
+    }
+
+    public void someOtherUseful()
+    {
+        System.out.println("Erhan Arslan".startsWith("Z"));
+        System.out.println("Erhan Arslan".endsWith("n"));
+
+        String str1="erhan";
+        String str2="arslan";
+
+        System.out.println(str1.compareTo(str2));
+
+        str1="apple";
+        str2="apple";
+
+        System.out.println("1- content equals of :"+str1.contentEquals(str2));
+
+        str1=new String("apple");
+        str2=new String("apple");
+
+        System.out.println("2- object equals: "+(str1==str2));
+        System.out.println("3- content equals: "+str1.contentEquals(str2));
+
+        str1=" ";// if str1 equals to null, code will give null pointer exception.
+        str2="";
+
+        System.out.println("4- object equals: "+(str1==str2));
+        System.out.println("5- content equals: "+str2.contentEquals(str1));
+
+
+        // I tried to show this because of we don't need to convert stringbuffer to string to compare. we can use contentequals.
+        //it doesn't care with the object type.
+        StringBuffer s3=new StringBuffer("a");
+        str1="a";
+        System.out.println("6- string and buffer comparison: "+str1.contentEquals(s3));
+
+        StringBuilder s4=new StringBuilder("a");
+
+        System.out.println("string builder and str content equals: "+str1.contentEquals(s4));
+
+    }
+
 }
